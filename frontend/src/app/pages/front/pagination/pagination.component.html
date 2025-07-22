@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Improved Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="C:\pfefront\pfeFront\src\assets\css\styles.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">OpsAutomate</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">conatct</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tests">tests</a>
+          </li>
+          
+        </ul>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Our Services
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">build</a></li>
+            <li><a class="dropdown-item"  data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="test de qualite ">
+             test </a></li>
+            <li><a class="dropdown-item" href="#">deploy</a></li>
+          </ul>
+          
+        </div>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav> 
+
+
+<div class="container mt-5">
+  <div class="attribute-frame">
+    <div class="attribute-frame__title">
+      Artifact Build
+      <img class="profile-img" src="assets/images/nexus.png" alt="Nexus" width="150" height="60">
+    </div>
+    <div class="checkbox-container">
+      <label class="checkbox-label">
+        <input type="checkbox" [(ngModel)]="isCheckedYess" name="yesCheckbox" (change)="handleCheckboxChange()">
+        <span class="checkbox-custom"></span> Yes
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" [(ngModel)]="isCheckedNoo" name="noCheckbox">
+        <span class="checkbox-custom"></span> No
+      </label>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="downloadjarfile()">Download Jarfile</button>
+    </div>
+  </div>
+
+  <div class="attribute-frame">
+    <div class="attribute-frame__title">
+      <span>Build And Push Docker Image</span>
+      <img class="profile-img" src="assets/images/docker.jpeg" alt="Docker" width="150" height="60">
+    </div>
+
+    <div class="docker-options">
+      <div class="build-options">
+        <span>1) Build Docker Image</span>
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" [(ngModel)]="isCheckedYesss" name="yesCheckbox" (change)="handleCheckboxChange()">
+            <span class="checkbox-custom"></span> Yes
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" [(ngModel)]="isCheckedNooo" name="noCheckbox">
+            <span class="checkbox-custom"></span> No
+          </label>
+        </div>
+      </div>
+
+      <div class="push-options">
+        <span>2) Push Docker Image</span>
+        <div class="radio-group">
+          <fieldset class="radio-group">
+            <legend>Options</legend>
+            <label class="radio-label">
+              <input type="radio" name="options" [(ngModel)]="selectedOption1" value="option1" [disabled]="!isCheckedYesss">
+              Use previous artifact
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="options" [(ngModel)]="selectedOption4" value="option4" [disabled]="!isCheckedYesss">
+              Generate Dockerfile
+            </label>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="docker-inputs">
+        <input type="text" class="form-control mb-2" placeholder="Username" [(ngModel)]="dockerUsername" [disabled]="!isCheckedYesss">
+        <input type="password" class="form-control mb-2" placeholder="Password" [(ngModel)]="dockerPassword" [disabled]="!isCheckedYesss">
+        <input type="text" class="form-control mb-2" placeholder="Image Name" [(ngModel)]="dockerImageName" [disabled]="!isCheckedYesss">
+      </div>
+
+      <div class="download-option">
+        <input type="checkbox" id="download" [(ngModel)]="downloadartifactSelected" [disabled]="!isCheckedYesss">
+        <label for="download">Download</label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="/home">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="/pipeline">1</a></li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="/page2">2</a></li>
+        <li class="page-item"><a class="page-link" href="/page3">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="/page3" (click)="triggerPipeline()">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-white py-4 mt-auto">
+  <div class="container px-5">
+    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+      <div class="col-auto">
+        <div class="small m-0">&copy; Your Website 2023</div>
+      </div>
+      <div class="col-auto">
+        <a class="small" href="#!">Privacy</a>
+        <span class="mx-1">&middot;</span>
+        <a class="small" href="#!">Terms</a>
+        <span class="mx-1">&middot;</span>
+        <a class="small" href="#!">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

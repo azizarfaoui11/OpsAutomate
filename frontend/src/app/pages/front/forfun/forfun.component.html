@@ -1,0 +1,42 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Entrer vos paramètres
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Paramètres de la base de données</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulaire pour saisir les paramètres -->
+          <form>
+            <div class="mb-3">
+              <label for="databaseName" class="form-label">Nom de la base de données</label>
+              <input type="text" class="form-control" id="databaseName" [(ngModel)]="databaseName" name="databaseName">
+            </div>
+            <div class="mb-3">
+              <label for="dataSourceUrl" class="form-label">URL du Spring DataSource</label>
+              <input type="text" class="form-control" id="dataSourceUrl" [(ngModel)]="dataSourceUrl" name="dataSourceUrl">
+            </div>
+            <div class="mb-3">
+              <label for="dataSourceUsername" class="form-label">Nom d'utilisateur du Spring DataSource</label>
+              <input type="text" class="form-control" id="dataSourceUsername" [(ngModel)]="dataSourceUsername" name="dataSourceUsername">
+            </div>
+            <div class="mb-3">
+              <label for="dataSourcePassword" class="form-label">Mot de passe du Spring DataSource</label>
+              <input type="password" class="form-control" id="dataSourcePassword" [(ngModel)]="dataSourcePassword" name="dataSourcePassword">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary" (click)="saveChanges()">Enregistrer les changements</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

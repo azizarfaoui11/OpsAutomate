@@ -1,0 +1,21 @@
+.navbar-brand h1 {
+    margin: 0;
+    font-size: 1.5rem; /* Ajustez cette valeur selon vos besoins */
+}
+
+.profile-img {
+    margin-right: 10px;
+    height: auto; /* Assurez-vous que l'image conserve son aspect ratio */
+}
+.btn-custom {
+    padding: 0.5rem 1.5rem; /* Ajustez ces valeurs selon vos besoins */
+    font-size: 1rem; /* Ajustez la taille de la police */
+    font-weight: 600; /* Ajustez l'épaisseur de la police */
+}
+
+.btn-outline-custom {
+    padding: 0.5rem 1.5rem; /* Ajustez ces valeurs selon vos besoins */
+    font-size: 1rem; /* Ajustez la taille de la police */
+    font-weight: 600; /* Ajustez l'épaisseur de la police */
+    border-width: 2px; /* Ajustez la largeur de la bordure */
+}

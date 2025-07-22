@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            position: relative; /* Ajout de position relative pour le corps */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: text-flicker 1.5s infinite;
+        }
+
+        @keyframes text-flicker {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .attribute-frame {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fade-in 1s ease-out forwards;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .attribute-frame__title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 60px;
+            margin-top: 5px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .checkbox-label {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-custom {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            position: relative;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .checkbox-custom::after {
+            content: '';
+            width: 6px;
+            height: 12px;
+            border: 3px solid transparent;
+            border-top: none;
+            border-right: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            opacity: 0;
+        }
+
+        input[type="checkbox"]:checked + .checkbox-custom::after {
+            opacity: 1;
+        }
+
+        /* Styles for the back button */
+        .button {
+            position: absolute;
+            top: 20px; /* Distance du haut de la page */
+            left: 20px; /* Distance de la gauche de la page */
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styles for the sliding icon */
+        .button-sliding-icon {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .button-sliding-icon i {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .button-sliding-icon:hover i {
+            transform: translateX(20px) translateY(-50%);
+        }
+
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .ripple-effect:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform 0.5s, opacity 1s;
+        }
+
+        .ripple-effect:active:after {
+            transform: scale(0, 0);
+            opacity: 0.3;
+            transition: 0s;
+        }
+        .containerpagination{
+            margin-top: 60px;
+        }
+        .containervalidate{
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">OpsAutomate</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">conatct</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/tests">tests</a>
+              </li>
+              
+            </ul>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Our Services
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">build</a></li>
+                <li><a class="dropdown-item"  data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="test de qualite ">
+                 test </a></li>
+                <li><a class="dropdown-item" href="#">deploy</a></li>
+              </ul>
+              
+            </div>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>    
+
+    <div class="container">
+        <h1>Faites vos tests</h1>
+        
+        <div class="attribute-frame">
+            <div class="attribute-frame__title">
+                Junit test
+                <img class="profile-img" src="assets/images/junit.png" alt="Nexus logo">
+            </div>
+            <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="junityes" name="yesCheckbox">
+                    Yes
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="junitno" name="noCheckbox">
+                    No
+                </label>
+            </div>
+        </div>
+
+        <div class="attribute-frame">
+            <div class="attribute-frame__title">
+                Jmeter test
+                <img class="profile-img" src="assets/images/jmeter.jpg" alt="Nexus logo">
+            </div>
+            <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="jmeteryes" name="yesCheckbox">
+                    Yes
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="jmeterno" name="noCheckbox">
+                    No
+                </label>
+            </div>
+            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#" (click)="jmeterfunction()">Show results</a>
+
+        </div>
+
+        <div class="attribute-frame">
+            <div class="attribute-frame__title">
+                Selenuim test
+                <img class="profile-img" src="assets/images/selenuim.jpg" alt="Nexus logo">
+            </div>
+            <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="selenuimyes" name="yesCheckbox">
+                    Yes
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" [(ngModel)]="selenuimno" name="noCheckbox">
+                    No
+                </label>
+            </div>
+            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#" (click)="selenuimfunction()">Show results</a>
+
+        </div>
+           <div class="containervalidate">
+            <a class="button button-sliding-icon ripple-effect" href="#" (click)="triggerPipeline()">validate</a>
+           </div>
+
+             
+        <div class="containerpagination">
+            <div>
+                <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item ">
+                    <a class="page-link" href="/home" >Previous</a>
+                    </li>
+                    <li  class="page-item"><a class="page-link" href="/page2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="/page3">3</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="/tests">4</a></li>
+                    <li class="page-item">
+                    <a class="page-link"  (click)="triggerPipeline()">Next</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+        </div>   
+        
+
+
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
+          </div>
+
+          <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">    &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+          

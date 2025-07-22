@@ -1,0 +1,183 @@
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">OpsAutomate</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">conatct</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tests">tests</a>
+        </li>
+        
+      </ul>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Our Services
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">build</a></li>
+          <li><a class="dropdown-item"  data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="test de qualite ">
+           test </a></li>
+          <li><a class="dropdown-item" href="#">deploy</a></li>
+        </ul>
+        
+      </div>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>    
+
+  
+<div class="attribute-frame slide-in">
+    <div class="attribute-frame__title">
+  Build Docker Image (frontend)    
+  <img class="profile-img" src="assets\images\docker.jpeg" alt="..." width="150" height="60" style="margin-top: 5px;" />
+  
+    </div>
+    <div class="checkbox-container">
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="isCheckedYess" name="yessCheckbox"   (change)="handleCheckboxChange()"/>
+          <span class="checkbox-custom"></span>
+          Yes
+        </label>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="isCheckedNoo" name="nooCheckbox"  />
+          <span class="checkbox-custom"></span>
+          No
+        </label>
+        
+      </div>
+      
+      <div class="radio-group">
+        <fieldset class="radio-group">
+            <legend>Options</legend>
+            
+            <label class="radio-label">
+              <input type="radio" name="options" [(ngModel)]="selectedOption1" value="option1" [disabled]="!isCheckedYess" />
+              Use previous artifact 
+            </label>
+            
+            
+            
+            <label class="radio-label">
+                <input type="radio" name="options" [(ngModel)]="selectedOption4" value="option4" [disabled]="!isCheckedYess" />
+                Generate Dockerfile
+              </label>
+
+              <input type="text" placeholder="Image Name" [(ngModel)]="dockerImageName"  />
+
+            
+              
+            
+           
+          </fieldset>
+        </div>
+ </div>
+
+ 
+ <div class="attribute-frame slide-in">
+  <div class="attribute-frame__title">
+BDD       
+<img class="profile-img" src="assets\images\bdd.jpg" alt="..." width="200" height="60" style="margin-top: 5px;" />
+
+  </div>
+    
+    <div class="attribute-frame__content">
+      
+      <!-- Boutons radio pour le choix du projet -->
+      <div>
+        <div>
+          <input type="radio" id="MySql" name="buildTool" [(ngModel)]="db" value="MySql"  />
+          <label for="maven">MySql</label>
+          <app-forfun></app-forfun>
+        </div>
+       
+        <div><input type="radio" id="Mongodb" name="buildTool" [(ngModel)]="db" value="Mongodb"  />
+          <label for="gradle">Mongodb</label>
+          <app-forfun></app-forfun></div>
+        
+
+        
+          <div>
+            <input type="radio" id="PostgreSQL" name="buildTool" [(ngModel)]="db" value="PostgreSQL"  />
+        <label for="gradle">PostgreSQL</label>
+        <app-forfun></app-forfun>
+          </div>
+        
+
+      </div>
+      
+      <p><strong>Projet sélectionné :</strong> {{ db }}</p>
+      
+      <!-- Ajoutez d'autres attributs ici -->
+    </div>
+  
+  
+  
+    </div>
+    <div class="attribute-frame">
+      <div class="attribute-frame__title">
+          deploy local
+          <img class="profile-img" src="assets/images/deploy.png" alt="Nexus logo">
+      </div>
+      <div class="checkbox-container">
+          <label class="checkbox-label">
+              <input type="checkbox" [(ngModel)]="deployyes" name="yesCheckbox">
+              Yes
+          </label>
+          <label class="checkbox-label">
+              <input type="checkbox" [(ngModel)]="deployno" name="noCheckbox">
+              No
+          </label>
+      </div>
+
+  </div>
+  
+  
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item ">
+          <a class="page-link" href="/home" >Previous</a>
+        </li>
+        <li  class="page-item"><a class="page-link" href="/pipeline">1</a></li>
+        <li class="page-item"><a class="page-link" href="/page2">2</a></li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="/page3">3</a></li>
+        <li class="page-item">
+          <a class="page-link"  (click)="triggerPipeline()">Next</a>
+        </li>
+      </ul>
+    </nav>
+   </div>
+   <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+  </div>
+   
+  <footer class="bg-white py-4 mt-auto">
+    <div class="container px-5">
+      <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+        <div class="col-auto">
+          <div class="small m-0">&copy; Your Website 2023</div>
+        </div>
+        <div class="col-auto">
+          <a class="small" href="#!">Privacy</a>
+          <span class="mx-1">&middot;</span>
+          <a class="small" href="#!">Terms</a>
+          <span class="mx-1">&middot;</span>
+          <a class="small" href="#!">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>

@@ -1,0 +1,40 @@
+/* Animation de survol pour la carte */
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+/* Style personnalisé pour la carte */
+
+.col{
+    margin-top: 2px;
+
+}
+.b{
+    margin-top: 100px;
+}
+.carousel-item .centered-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.carousel-item .centered-img img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.carousel-caption .b {
+    margin-top: 20px;
+}
+
+.carousel-item .centered-img img {
+    display: block;
+    margin: auto;
+}
+
+
+      
