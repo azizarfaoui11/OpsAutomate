@@ -1,4 +1,4 @@
-export interface User {
+export class User {
     id: number;
     firstname: string;
     lastname: string;
@@ -6,7 +6,18 @@ export interface User {
     password: string;
     email:string;
     role: Role;
+
+    constructor(){
+      this.id=0;
+      this.firstname="";
+      this.lastname="";
+      this.username="";
+      this.password="";
+      this.email="";
+      this.role=Role.USER;
+    }
   }
+  
   
   export enum Role {
     USER = 'USER',

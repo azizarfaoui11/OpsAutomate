@@ -1,0 +1,14 @@
+export class selnparams {
+   
+    targetstage28:string;
+    targetstage29:string;
+    targetstage30:string;
+ constructor(targetstage28:string,targetstage29:string,targetstage30:string
+     ) {
+     
+      this.targetstage28=targetstage28;
+      this.targetstage29=targetstage29;
+      this.targetstage30=targetstage30;
+}
+  }
+  

@@ -21,3 +21,30 @@ body {
     background-color: #0056b3;
     border-color: #0056b3;
 }
+.notification {
+    position: fixed;
+    top: 62px;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+.notification-success {
+    background-color: rgb(32, 216, 216); /* vert clair */
+    color: white ;/* texte vert foncé */
+    top: 5px;
+    left: 5px;
+    right: 1230px;
+    margin-top: 5px;
+  }
+  .notification-a {
+    background-color: rgb(32, 216, 216); /* vert clair */
+    color: white ;/* texte vert foncé */
+    top: 5px;
+    right: 1230px;
+    left: 5px;
+    margin-top: 5px;
+  }
+  
+  
+  

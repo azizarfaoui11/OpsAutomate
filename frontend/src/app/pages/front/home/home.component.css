@@ -1,7 +1,4 @@
-.navbar-brand h1 {
-    margin: 0;
-    font-size: 1.5rem; /* Ajustez cette valeur selon vos besoins */
-}
+
 
 .profile-img {
     margin-right: 10px;
@@ -19,3 +16,56 @@
     font-weight: 600; /* Ajustez l'épaisseur de la police */
     border-width: 2px; /* Ajustez la largeur de la bordure */
 }
+
+#user-account {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #4f4caf; /* Couleur de fond, modifiable */
+    border-radius: 50%; /* Transforme le div en cercle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optionnel: ombre portée */
+    margin-right: 10px;
+    margin-top: 0px;
+}
+
+.avatar-text {
+    line-height: 1; /* Ajuste la hauteur de ligne pour centrer le texte */
+}
+.dropdown-toggle{
+justify-content: end;
+margin-right: 10px;
+}
+
+
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+

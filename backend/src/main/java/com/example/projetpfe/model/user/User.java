@@ -1,5 +1,10 @@
 package com.example.projetpfe.model.user;
 
+import com.example.projetpfe.model.GroupeRessource.GroupeRessource;
+import com.example.projetpfe.model.GroupeRessource.projet;
+import com.example.projetpfe.model.abonnement.abonnement;
+import com.example.projetpfe.model.abonnement.subscription;
+import com.example.projetpfe.model.payment.ChargeResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,6 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.swing.*;
 import java.security.Principal;
 import java.util.Collection;
 import java.util.List;
@@ -64,6 +70,36 @@ public class User implements UserDetails, Principal {
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+
+   @JsonIgnore
+   @ManyToMany
+   @JoinTable(
+           name = "user_abonnement",
+           joinColumns = @JoinColumn(name = "user_id"),
+           inverseJoinColumns = @JoinColumn(name = "abonnement_id"))
+    private List<abonnement> abonnements;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "user_subscription",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "subscription_id"))
+    private  List<subscription> subscriptions;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "userpayment")
+    private List<ChargeResponse> chargeResponseList ;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<GroupeRessource> groupeRessourceList;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<projet> projetList;
+
+
 
 
 

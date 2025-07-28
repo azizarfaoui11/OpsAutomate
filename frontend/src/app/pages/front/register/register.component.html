@@ -1,79 +1,329 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Page</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .signup-container {
-            max-width: 450px; /* Ajustement de la taille du conteneur */
-            margin: auto;
-            padding: 4rem;
-            background-color: #f7f7f7;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        .signup-container h2 {
-            margin-bottom: 1.5rem;
-        }
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #007bff;
-        }
-        .input-group-text {
-            background-color: #f7f7f7;
-            border: none;
-            border-right: 1px solid #ced4da;
-        }
-        .input-group .form-control {
-            border-left: none;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-    </style>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>Hireo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="C://pfefront//pfeFront//src//assets//csss//colors//blue.css">
+<style>
+	 .notification-container {
+    position: fixed;
+    top: 72px;
+    left: 2px;
+    z-index: 1000;
+  }
+  
+  .notification {
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: fadeOut 4s ease-in;
+  }
+  
+  .notification-success {
+    background-color: #4caf50; /* Vert pour succès */
+    color: white;
+  }
+  
+  .notification-error {
+    background-color: #f44336; /* Rouge pour échec */
+    color: white;
+  }
+  .code-display {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Entrées individuelles du code */
+  .code-input {
+    display: flex;
+  }
+  
+  .code-input input {
+    flex: 1; /* Chaque champ d'entrée prend une part égale de l'espace disponible */
+    padding: 10px;
+    margin-right: 5px; /* Espacement entre les cases */
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px; /* Taille de police plus grande pour les codes */
+  }
+  
+  .code-input input:last-child {
+    margin-right: 0; /* Pas de marge à droite pour le dernier champ */
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+  
+</style>
+
 </head>
 <body>
-    <div class="d-flex vh-100 justify-content-center align-items-center">
-        <div class="signup-container">
-            <h2 class="text-center">Sign Up</h2>
-            <form>
-                <div class="form-group">
-                    <label for="firstname">First Name</label>
-                    <input  [(ngModel)]="registerRequest.firstname" name="firstname" type="text" class="form-control" id="firstname" placeholder="Enter your first name" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Last Name</label>
-                    <input  [(ngModel)]="registerRequest.lastname" name="lastname" type="text" class="form-control" id="lastname" placeholder="Enter your last name" required>
-                </div>
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input  [(ngModel)]="registerRequest.username" name="username" type="text" class="form-control" id="username" placeholder="Choose a username" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input  [(ngModel)]="registerRequest.email" name="email" type="text" class="form-control" id="email" placeholder="Choose a username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input  [(ngModel)]="registerRequest.password" name="password" type="password" class="form-control" id="password" placeholder="Choose a password" required>
-                </div>
-                <button type="submit" (click)="registerUser()" class="btn btn-primary btn-block">Sign Up</button>
-                <div class="text-center mt-3">
-                    <span>Already have an account? <a  href="/signin">Sign In</a></span>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Header Container
+================================================== -->
+
+			
+				
+				
+
+				<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; height:70px; margin-top: 1px;"  >
+          <div class="container-fluid">
+            <a class="navbar-brand" style="color: black;" href="#">OpsAutomate</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/ressource" style="color: black;">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/ressource" style="color: black;">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact" style="color: black;">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/essaie" style="color: black;">Tests</a>
+                </li>
+              </ul>
+              
+              <div class="dropdown" style="margin-top: 1px;">
+                <button class="btn btn-primary dropdown-toggle " style="background-color: #007BFF; height: 35px ; width: 130px; color: white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Our Services
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Build</a></li>
+                  <li><a class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Test de qualité">Test</a></li>
+                  <li><a class="dropdown-item" href="#">Deploy</a></li>
+                </ul>
+              </div>
+              
+              <form class="d-flex ms-2" style="margin-top: 32px; margin-left: 10px;">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 35px;">
+              </form>
+            </div>
+          </div>
+        </nav>
+  
+
+
+
+
+				
+			
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient" style="margin-top: 1px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Register</h2>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>Register</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+<div class="container"  >
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page" >
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3 style="font-size: 26px;">Let's create your account!</h3>
+					<span>Already have an account? <a href="/signin" style="color: blue;">Log In!</a></span>
+				</div>
+
+				<!-- Account Type -->
+				<div class="account-type">
+					<div>
+						<input type="radio" name="account-type-radio" id="freelancer-radio" class="account-type-radio" checked/>
+						<label for="freelancer-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Freelancer</label>
+					</div>
+
+					<div>
+						<input type="radio" name="account-type-radio" id="employer-radio" class="account-type-radio"/>
+						<label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Employer</label>
+					</div>
+				</div>
+					
+				<!-- Form -->
+     
+				<form (ngSubmit)="registerUser(registerForm)" #registerForm="ngForm">
+					<div class="input-with-icon-left">
+            <i>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" style="margin-top: 14px;">
+					<path d="M3 14s-1 0-1-1 1-3 5-3 5 2 5 3-1 1-1 1H3z"/>
+					<path d="M8 0a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+				</svg>
+			</i>
+			<input [(ngModel)]="registerRequest.username" name="username" type="text" class="form-control" id="username" placeholder="first name" required>
+		</div>
+          <div class="input-with-icon-left">
+						<i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16" style="margin-top: 14px;">
+							<path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8 12H3v-1h5v1zm0-3H3V8h5v1zm5 3H9V9h4v3z"/>
+							<path d="M9 0v5h5L9 0z"/>
+						</svg></i>
+						<input [(ngModel)]="registerRequest.firstname" name="lastname" type="text" class="form-control" id="lastname" placeholder=" last name" required>
+					</div>
+					<div class="input-with-icon-left">
+						<i> <svg style="margin-top: 14px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm8-7a7 7 0 0 1 5.468 11.37C12.97 10.226 10.964 9 8 9c-2.964 0-4.97 1.226-5.468 3.37A7 7 0 0 1 8 1z"/>
+                        </svg></i>						<input [(ngModel)]="registerRequest.email" name="email" type="email" class="form-control" id="email" placeholder="email" required>
+					</div>
+
+					<div class="input-with-icon-left" title="Should be at least 8 characters long" data-tippy-placement="bottom">
+						<i >
+							<svg style="margin-top: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-lock" viewBox="0 0 16 16">
+								<path d="M8 1a4 4 0 0 1 4 4v3h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1V5a4 4 0 0 1 4-4zm-3 4v3h6V5a3 3 0 1 0-6 0z"/>
+							</svg>
+					   
+					   </i>						<input [(ngModel)]="registerRequest.password" name="password" type="password" class="form-control" id="password" placeholder="password" required>
+					</div>
+
+					<button class="button full-width button-sliding-icon ripple-effect margin-top-10" style="color: white; background-color: blue;" type="submit" [disabled]="!registerForm.valid">Register <i class="icon-material-outline-arrow-right-alt"></i></button>
+
+          
+				</form>
+				
+				<!-- Button -->
+				
+				<!-- Social Login -->
+				<div class="social-login-separator"><span>or</span></div>
+				<div class="social-login-buttons" style="margin-bottom:40px ; ">
+					<button class="facebook-login ripple-effect"><i class="icon-brand-facebook-f"></i> Register via Facebook</button>
+					<button class="google-login ripple-effect"><i class="icon-brand-google-plus-g"></i> Register via Google+</button>
+				</div>
+			</div>
+
+			<div class="notification-container">
+				<div class="notification" [ngClass]="notificationClass" *ngIf="showNotification">
+				  {{ notificationMessage }}
+				</div>
+			  </div>
+
+			<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg" style="height: 900px; width: 600px;" >
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel">Check your Email box!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container">
+                        <div class="verification-box">
+                          <h2>Account Verification</h2>
+                          <form (ngSubmit)="onSubmit()">
+                            <div class="input-group">
+                              <label for="code">Verification Code</label>
+                              <div class="code-input">
+                                <input type="text" id="code1" name="code1" maxlength="1" [(ngModel)]="code1" required>
+                                <input type="text" id="code2" name="code2" maxlength="1" [(ngModel)]="code2" required>
+                                <input type="text" id="code3" name="code3" maxlength="1" [(ngModel)]="code3" required>
+                                <input type="text" id="code4" name="code4" maxlength="1" [(ngModel)]="code4" required>
+                                <input type="text" id="code5" name="code5" maxlength="1" [(ngModel)]="code5" required>
+                                <input type="text" id="code6" name="code6" maxlength="1" [(ngModel)]="code6" required>
+                              </div>
+                            </div>
+                            <button type="submit" class="btn" style="color: blue;">Verify</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            
+              <div class="notification-container">
+                <div class="notification notification-success" *ngIf="showSuccessNotification">
+                  Account verified successfully!
+                </div>
+                <div class="notification notification-error" *ngIf="showErrorNotification">
+                  Verification failed. Please try again.
+                </div>
+              </div>
+           
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Spacer -->
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+<!-- Wrapper / End -->
+
+<!-- Scripts
+================================================== -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.min.js"></script>
+<script src="js/mmenu.min.js"></script>
+<script src="js/tippy.all.min.js"></script>
+<script src="js/simplebar.min.js"></script>
+<script src="js/bootstrap-slider.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/snackbar.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/counterup.min.js"></script>
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/custom.js"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
 </body>
 </html>

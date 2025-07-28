@@ -1,3 +1,5 @@
+
+
 .attribute-frame {
     border: 2px solid #007bff;
     border-radius: 8px;
@@ -134,3 +136,51 @@
     width: 100px; /* Définissez la largeur souhaitée */
     height: auto; /* Laissez la hauteur automatique pour conserver les proportions */
 }
+.progress{
+  margin-left: 60px;
+  margin-right: 60px;
+
+}
+.notification-container {
+  position: fixed;
+  top: 85px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.notification {
+  padding: 15px;
+  position: fixed;
+  top:72px;
+  right: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  animation: fadeOut 4s ease-in;
+}
+
+.notification-success {
+  background-color: #4caf50; /* Vert pour succès */
+  color: white;
+}
+
+.notification-error {
+  background-color: #f44336; /* Rouge pour échec */
+  color: white;
+}
+.notification-a{
+  background-color: rgb(0, 157, 255);
+  color: white;
+  
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+

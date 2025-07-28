@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+   
+        .background-image {
+            background-image: url('assets/images/stripe.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+        }
+        .form-container {
+            position: absolute;
+            top: 50%;
+            right: 160px;
+            transform: translateY(-50%);
+            width: 450px;
+            height: 600px;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement translucide */
+            backdrop-filter: blur(10px);
+            border: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .btn-primary {
+            background-color: #5C6BC0; /* Couleur principale harmonisée */
+            border: none; /* Supprimer la bordure */
+        }
+        #aa {
+            background-color: #5C6BC0; /* Couleur principale harmonisée */
+            border: none; /* Supprimer la bordure */
+        }
+        .form-control {
+            border: 2px solid #5C6BC0; /* Bordure personnalisée */
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #3F51B5; /* Couleur de bordure au focus */
+            box-shadow: 0 0 5px rgba(63, 81, 181, 0.5); /* Ombre au focus */
+        }
+        label {
+            color: #3F51B5; /* Couleur des labels harmonisée */
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            border: none;
+            background: transparent;
+            color: #5C6BC0;
+            font-size: 35px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <button class="close-btn" onclick="window.location.href='abonn';">&times;</button>
+
+        <div class="form-container">
+            <div class="card" style="height: 600px; margin-top: 5px;">
+                
+                <div class="card-body">
+                    <form>
+                        
+                        <div class="form-group mb-4"> <!-- Ajout de la classe mb-4 pour une marge inférieure -->
+                            <label for="cardNumber">Numéro de carte</label>
+                            <input type="text" class="form-control" id="cardNumber" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-4"> <!-- Ajout de la classe mb-4 pour une marge inférieure -->
+                                <label for="exp_month">Mois d'expiration</label>
+                                <input type="text" class="form-control" id="expMonth" placeholder="MM" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-4"> <!-- Ajout de la classe mb-4 pour une marge inférieure -->
+                                <label for="exp_year">Année d'expiration</label>
+                                <input type="text" class="form-control" id="expYear" placeholder="YY" required>
+                            </div>
+                            <div class="form-group col-md-6 mb-4"> <!-- Ajout de la classe mb-4 pour une marge inférieure -->
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control" id="cvv" required>
+                            </div>
+                        </div>
+                        <button type="submit" (click)="chargeCreditCard()" class="btn btn-primary btn-block mt-3">Payer</button>
+                        <!-- Ajout de la classe mt-3 pour une marge supérieure -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showNotification" [ngClass]="notificationClass" class="notification">
+        {{ notificationMessage }}
+    </div>
+</body>
+</html>

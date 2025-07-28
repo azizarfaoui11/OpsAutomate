@@ -40,7 +40,9 @@ export class PaginationComponent implements OnInit {
   downloadartifactSelected:boolean=false;
 
   pipeParams: PipeParams = {
-    
+    targetstage1:"",
+    targetstage2:"",
+    targetstage3:"",
     targetstage5:"",
     targetstage6:"",
     targetstage7:"",
@@ -58,6 +60,14 @@ export class PaginationComponent implements OnInit {
     targetstage19:"",
     targetstage20:"",
     targetstage21:"",
+    targetstage23:"",
+    targetstage24:"",
+    targetstage25:0,
+    targetstage26:0,
+    targetstage27:0,
+    targetstage28:"",
+    targetstage29:"",
+    targetstage30:""  
 
 
 
@@ -94,32 +104,54 @@ export class PaginationComponent implements OnInit {
 
   
 
-  updateTargetStage5(): void {
+ /* updateTargetStage5(): void {
 
     if (this.isCheckedYess) {
       this.pipeParams.targetstage5="nexus";
     } 
     
-  }
+  }*/
 
-  updateTargetStage6(): void {
+    updateTargetStage6(): void {
+      if (this.isCheckedYesss) {
+        this.pipeParams.targetstage6 = "docker";
+      } else {
+        // Vous pouvez également gérer le cas où le checkbox est décoché, si nécessaire
+        this.pipeParams.targetstage6 = ""; // ou une autre valeur par défaut
+      }
+    }
+ /* updateTargetStage6(): void {
 
     if (this.isCheckedYesss) {
       this.pipeParams.targetstage6="docker";
     } 
     
   }
-  /*updateTargetStage7(): void {
-    if (this.dockerfilePath !== undefined && this.dockerfilePath !== null && this.dockerfilePath.trim() !== '') {
-        this.pipeParams.targetstage7 = this.dockerfilePath;
-    } 
-}*/
+*/
+   updateTargetStage5(): void {
+    if (this.isCheckedYess) {
+      this.pipeParams.targetstage5 = "nexus";
+    } else {
+      // Vous pouvez également gérer le cas où le checkbox est décoché, si nécessaire
+      this.pipeParams.targetstage5 = ""; // ou une autre valeur par défaut
+    }
+  }
 
-updateTargetStage8(): void {
+  updateTargetStage8(): void {
+    if (this.selectedOption4) {
+        this.pipeParams.targetstage8 = Base64.encode(this.dockerfilegenerate);
+    } 
+    else {
+      this.pipeParams.targetstage8="";
+    }
+  }
+ 
+
+/*updateTargetStage8(): void {
   if (this.selectedOption4 !== undefined && this.selectedOption4.trim() !== '') {
       this.pipeParams.targetstage8 = Base64.encode(this.dockerfilegenerate);
   } 
-}
+}*/
 updateTargetStage10(): void {
   if (this.dockerUsername !== null ) {
     this.pipeParams.targetstage10 = this.dockerUsername;
@@ -191,7 +223,8 @@ const updatedParams = {
   targetstage8: this.pipeParams.targetstage8,
   targetstage10: this.pipeParams.targetstage10,
   targetstage15: this.pipeParams.targetstage15,
-  targetstage16: this.pipeParams.targetstage16
+  targetstage16: this.pipeParams.targetstage16,
+  targetstage22: this.pipelineParams.targetstage22
 };
 
 console.log('Updated Params:', updatedParams); 

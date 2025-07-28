@@ -1,0 +1,23 @@
+<h1>Upload and Download File</h1>
+<input type="file" id="customFile" (change)="selectFile($event)">
+<button class="btn btn-primary" [disabled]="!selectedFiles" (click)="upload()">Save File</button>
+
+
+
+<button (click)="jmeterpdf()">Jmeter PDF</button>
+<div *ngIf="Pdfjemter">
+  <embed [src]="Pdfjemter" type="application/pdf" width="100%" height="600px" />
+</div>
+
+
+<button (click)="downloadPdfjunit()">Junit PDF</button>
+<div *ngIf="pdfurl">
+  <embed [src]="pdfurl" type="application/pdf" width="100%" height="600px" />
+</div>
+
+<button (click)="seleniumPDF()">Selenuim PDF</button>
+<div *ngIf="PdfselenUrl">
+  <embed [src]="PdfselenUrl" type="application/pdf" width="100%" height="600px" />
+</div>
+
+

@@ -25,7 +25,9 @@ export class PipelineComponent implements OnInit{
     //targetstage1 : string= 'clone';
     showLabel: boolean = false;
     comment: string = '';
+    commentt:string='';
     commentValue: string = '';
+    commentValuee:string='';
     mavenSelected: boolean = false; // Cette variable stockera si Maven est sélectionné
   gradleSelected: boolean = false;
   selectedBuildTool:string="";
@@ -38,7 +40,16 @@ export class PipelineComponent implements OnInit{
     targetstage1: "",
     targetstage2: "",
     targetstage3: "",
-    targetstage4: ""
+    targetstage4: "",
+    targetstage22:"",
+    targetstage23:"",
+    targetstage24:"",
+    targetstage25:0,
+    targetstage26:0,
+    targetstage27:0,
+    targetstage28:"",
+    targetstage29:"",
+    targetstage30:""
   };
   resultat:any;
   
@@ -55,6 +66,8 @@ export class PipelineComponent implements OnInit{
     console.log(this.pipelineParams.targetstage1);
     console.log(this.pipelineParams.targetstage2);
     console.log(this.pipelineParams.targetstage3);
+    console.log(this.pipelineParams.targetstage4);
+    console.log(this.pipelineParams.targetstage22);
 
 
 
@@ -66,6 +79,16 @@ export class PipelineComponent implements OnInit{
     } 
     
   }
+  updateTargetStage22(): void {
+    if(this.commentValuee!==null)
+    {
+      this.pipelineParams.targetstage22=this.commentValuee;
+    }
+    else {
+      this.pipelineParams.targetstage22 = ""; 
+    }
+  }
+  
 
   /*updateTargetStage2(): void {
 
@@ -145,12 +168,14 @@ triggerPipeline() {
   this.updateTargetStage2();
   this.updateTargetStage3();
   this.updateTargetStage4();
+  this.updateTargetStage22();
   
   const updatedParams = {
     targetstage1: this.pipelineParams.targetstage1,
     targetstage2: this.pipelineParams.targetstage2,
     targetstage3: this.pipelineParams.targetstage3,
     targetstage4: this.pipelineParams.targetstage4,
+    targetstage22:this.pipelineParams.targetstage22,
   };
 
   console.log('Updated Params:', updatedParams); // Vérifiez ici
@@ -182,21 +207,26 @@ analysecode(){
    
 
   saveComment(): void {
-    // Ici, vous pouvez ajouter la logique pour enregistrer le commentaire, 
-    // par exemple, l'envoyer à un service ou le stocker dans une variable
-   // 
     
-    // Réinitialiser le commentaire et masquer le label après avoir enregistré
     this.commentValue=this.comment;
     this.comment = '';
     this.showLabel = false;
 
 
 }
+saveCommentt(): void {
+  
+  this.commentValuee=this.commentt;
+  this.commentt = '';
+  this.showLabel = false;
+
+
+}
+
 
 handleCheckboxChange(): void {
   if (!this.isCheckedYes) {
-    this.isCheckedNo = false; // Réinitialisez la deuxième case à cocher si la première case est décochée
+    this.isCheckedNo = false; 
 
 
   }

@@ -1,0 +1,42 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModall">
+    Entrer vos paramètres
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Paramètres de votre test selenium  </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulaire pour saisir les paramètres -->
+          <form>
+            <div class="mb-3">
+              <label for="endpoint" class="form-label"> votre path</label>
+              <input type="text" class="form-control" id="endpoint" [(ngModel)]="endpoint" name="endpoint" placeholder="ENDPOINT ">
+            </div>
+            <div class="mb-3">
+              <label for="element" class="form-label">récupérer le texte d'un élément par son ID</label>
+              <input type="text" class="form-control" id="element" [(ngModel)]="element" name="element" placeholder="ELEMENT_ID">
+            </div>
+            <div class="mb-3">
+              <label for="classn" class="form-label">récupérer l'attribut d'un élément par sa classe</label>
+              <input type="text" class="form-control" id="classn" [(ngModel)]="classn" name="classn" placeholder="CLASS_NAME">
+            </div>
+           
+  
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary" (click)="saveChanges()">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

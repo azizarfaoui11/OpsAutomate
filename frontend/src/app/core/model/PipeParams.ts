@@ -1,4 +1,7 @@
 export class PipeParams {
+    targetstage1:string;
+    targetstage2:string;
+    targetstage3:string;
     targetstage5 : string;
     targetstage6 : string;
     targetstage7: string;
@@ -16,6 +19,15 @@ export class PipeParams {
     targetstage19:string;
     targetstage20:string;
     targetstage21:string;
+    targetstage22?:string;
+    targetstage23:string;
+    targetstage24:string;
+    targetstage25:number;
+    targetstage26:number;
+    targetstage27:number;
+    targetstage28:string;
+    targetstage29:string;
+    targetstage30:string;
 
 
 
@@ -23,7 +35,15 @@ export class PipeParams {
 
 
 
-     constructor(targetstage5: string,targetstage6: string,targetstage7: string,targetstage8: string,targetstage9: string,targetstage10 : string, targetstage11:string,targetstage12:string,targetstage13:string,targetstage14:string,targetstage15:string, targetstage16:string, targetstage17: string, targetstage18: string , targetstage19: string ,targetstage20: string,targetstage21: string) {
+
+
+     constructor(targetstage1:string,targetstage2:string,targetstage3: string ,targetstage5: string,targetstage6: string,targetstage7: string,targetstage8: string,targetstage9: string,targetstage10 : string, targetstage11:string,targetstage12:string,targetstage13:string,targetstage14:string,targetstage15:string, targetstage16:string, targetstage17: string, targetstage18: string , targetstage19: string ,targetstage20: string,targetstage21: string
+      ,targetstage22:string,targetstage23:string,targetstage24:string,targetstage25:number,targetstage26:number,
+      targetstage27:number,targetstage28:string,targetstage29:string,targetstage30:string
+     ) {
+      this.targetstage1=targetstage1;
+      this.targetstage2=targetstage2;
+      this.targetstage3 =targetstage3;
       this.targetstage5 =targetstage5;
       this.targetstage6 =targetstage6;
       this.targetstage7 =targetstage7;
@@ -42,6 +62,17 @@ export class PipeParams {
       this.targetstage19=targetstage19;
       this.targetstage20=targetstage20;
       this.targetstage21=targetstage21;
+
+      this.targetstage22=targetstage22;
+      this.targetstage23=targetstage23;
+      this.targetstage24=targetstage24;
+      this.targetstage25=targetstage25;
+      this.targetstage26=targetstage26;
+      this.targetstage27=targetstage27;
+      this.targetstage28=targetstage28;
+      this.targetstage29=targetstage29;
+      this.targetstage30=targetstage30;
+
 
 
 

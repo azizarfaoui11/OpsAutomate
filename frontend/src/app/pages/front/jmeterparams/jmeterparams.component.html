@@ -1,0 +1,48 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Commencer !
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Paramètres de votre test de perfermance  </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulaire pour saisir les paramètres -->
+        <form>
+          <div class="mb-3">
+            <label for="methode" class="form-label">Type de votre endpoint</label>
+            <input type="text" class="form-control" id="methode" [(ngModel)]="methode" name="methode">
+          </div>
+          <div class="mb-3">
+            <label for="path" class="form-label">votre endpoint</label>
+            <input type="text" class="form-control" id="path" [(ngModel)]="path" name="path">
+          </div>
+          <div class="mb-3">
+            <label for="users" class="form-label">Nombre de threads (users)</label>
+            <input type="text" class="form-control" id="users" [(ngModel)]="users" name="users">
+          </div>
+          <div class="mb-3">
+            <label for="boucle" class="form-label">Nombre du boucle de votre test</label>
+            <input type="text" class="form-control" id="boucle" [(ngModel)]="boucle" name="boucle">
+          </div>
+          <div class="mb-3">
+              <label for="periode" class="form-label">Periode du test (en Seconde)</label>
+              <input type="text" class="form-control" id="periode" [(ngModel)]="periode" name="periode">
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary" (click)="saveChanges()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

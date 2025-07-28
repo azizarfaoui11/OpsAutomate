@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Improved Page</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="C:\pfefront\pfeFront\src\assets\css\styles.css">
+    </head>
+	<body>
+		
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#">OpsAutomate</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/ressource" style="color: black;">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="/ressource" style="color: black;">Services</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="/contact" style="color: black;">Conatct</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#" style="color: black;">About</a>
+				  </li>
+				  
+				</ul>
+				<div class="dropdown">
+				  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					Our Services
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">build</a></li>
+					<li><a class="dropdown-item"  data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="test de qualite ">
+					 test </a></li>
+					<li><a class="dropdown-item" href="#">deploy</a></li>
+				  </ul>
+				  
+				</div>
+				<form class="d-flex" style="margin-left: 10px; margin-top: 7px;">
+				  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 28px;">
+				</form>
+			  </div>
+			</div>
+		  </nav>  
+<div class="card text-center" style=" height: 700px;">
+	<div class="card-header">
+	  <ul class="nav nav-pills card-header-pills">
+		<li class="nav-item">
+		  <a class="nav-link" href="/essaie">Jmeter</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link active" href="/essaie1">selenuim</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link " href="/essaie2" tabindex="-1" aria-disabled="true">Autres Tests ...</a>
+		</li>
+        <li class="nav-item">
+            <a class="nav-link" href="/essaie3" tabindex="-1" aria-disabled="true">Resultas</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="/hebergement" tabindex="-1" aria-disabled="true">hebergement</a>
+          </li>
+		
+	  </ul>
+	</div>
+	
+
+
+	  <div class="card mb-3" style="width: 1170px; margin-left: 10px; justify-content: start; margin-right: 10px;height: 650px;">
+		<div class="row g-0">
+		  <div class="col-md-4">
+			<div class="form-check form-switch" style="margin-left: 20px; margin-bottom: 60px;">
+				<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+				<label class="form-check-label" for="flexSwitchCheckDefault"></label>
+	
+			  </div>
+			  <h1>Faites</h1>
+			  <h1>Vos</h1>
+			  <h1>Tests</h1>
+			  
+			  
+			<img src="assets/images/selenuim.jpg" class="img-fluid rounded-start" alt="..." style="width: 250px; height: 150px; margin-top: 10px;">
+
+
+		</div>
+		  <div class="col-md-8" style="margin-top: 50px;">
+			<div class="card-body">
+				
+				<h2 class="card-title" style="color: rgb(136, 118, 95);">Démarrez avec Selenuim </h2>
+				<h4>Votre première étape vers l'automatisation des tests!</h4> 
+				<p class="card-text"></p>
+			  </div>
+			<div>
+                <app-selenuimparams></app-selenuimparams>
+             </div>
+			 <div class="lala" style="margin-top: 30px; " >
+				<h2 class="card-title" style="color: rgb(136, 118, 95);">Experts en Selenuim :</h2>
+				<h4>Importez votre fichier de test et libérez votre potentiel ! </h4> 
+			   </div>
+			
+		  
+		<div class="aaa" style="margin-top: 15px;"></div>	
+		<input type="file" id="customFile" (change)="selectFile($event)">
+			<div class="aa" style="margin-top: 15px;"></div>
+			<button class="btn btn-primary" [disabled]="!selectedFiles" (click)="upload()">Save File</button>
+		  </div>
+		 
+		  
+		<div>
+			<a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" (click)="selenuimfunction()" style="margin-top: 10px; margin-left: 70px;">Lancer votre test </a>
+
+		</div>
+		</div>
+	  </div>
+
+
+	
+  </div>
+  <div *ngIf="showNotification" [ngClass]="notificationClass" class="notification">
+	{{ notificationMessage }}
+  </div>
+</body>
+</html>
+ 

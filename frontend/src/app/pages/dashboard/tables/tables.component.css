@@ -1,0 +1,10 @@
+.custom-link {
+    margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
+  }
+  
+  .custom-link:last-child {
+    margin-right: 0; /* Supprime la marge droite pour le dernier élément */
+  }
+  
+  
+  

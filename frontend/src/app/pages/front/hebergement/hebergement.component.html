@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec image de fond</title>
+    <style>
+        body {
+            margin: 0; 
+            padding: 0; 
+            background-image: url('path/to/your/image.jpg'); /* Remplacez par le chemin de votre image */
+            background-size: cover; /* Couvre toute la surface */
+            background-repeat: no-repeat; /* Ne pas répéter l'image */
+            background-attachment: fixed; /* L'image reste fixe pendant le défilement */
+            color: white; /* Couleur par défaut pour le texte */
+        }
+
+        .background {
+            text-align: center; 
+            padding: 20px; 
+            margin-bottom: 10px; 
+        }
+
+        .close-btn {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background: none; 
+            border: none; 
+            color: white; 
+            font-size: 30px; 
+            cursor: pointer; 
+        }
+
+        .content {
+            margin-top: 10px;
+        }
+
+        h3 {
+            margin: 5px 0; /* Espacement entre les titres */
+        }
+
+        form {
+            background-color: transparent; /* Fond semi-transparent pour le formulaire */
+            margin: 20px auto; 
+            display: inline-block; /* Centrer le formulaire */
+            border-radius: 10px; /* Coins arrondis */
+            padding: 20px; /* Ajouter un peu de padding */
+        }
+
+        .replica-section {
+            margin: 15px 0; /* Espacement entre les sections */
+            display: flex; 
+            align-items: center; /* Aligné verticalement */
+        }
+
+        label {
+            font-size: 1.2em; 
+            margin-right: 10px; 
+            color: white;
+            flex-grow: 1; /* Laisser le label prendre l'espace */
+            text-align: left; /* Alignement du texte à gauche */
+        }
+
+        .counter {
+            display: flex; 
+            align-items: center;
+        }
+
+        .counter-input {
+            width: 60px; 
+            text-align: center; 
+            margin: 0 10px; 
+            color: black; 
+            background-color: transparent; 
+        }
+
+        .form-group {
+            margin: 10px 0; /* Espacement uniforme entre les groupes de formulaires */
+        }
+
+        button {
+            margin-left: 10px; 
+            background-color: blue; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            padding: 5px 10px;
+        }
+
+        .submit-button {
+            margin-top: 20px; /* Espacement avant le bouton de validation */
+            background-color: transparent; 
+            color: white; 
+        }
+
+        .modal-content {
+            background-color: #fff; /* Donnée de style pour la modale */
+            color: black; /* Le texte de la modale */
+            padding: 20px; 
+            border-radius: 10px; 
+            position: relative; 
+            height: 420px;
+        }
+
+        .close-button {
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <button class="close-btn" onclick="window.location.href='ressource';">&times;</button>
+        
+        <div class="content">
+            <div>
+                <h3>Finaliser la dernière étape et faites votre </h3>
+                <h3>hébergement</h3>
+            </div>  
+
+            <form>
+                <div class="form-group">
+                    <label for="replicas">Nombre de réplicas par pods</label>
+                    <button (click)="openPopup()" style="background-color: transparent;" class="flech-button">Configurer les réplicas</button> <!-- Bouton pour ouvrir la modale -->
+                </div>
+
+                <!-- Popup de sélection du nombre de réplicas -->
+                <div id="modal" class="modal" [style.display]="isModalVisible ? 'block' : 'none'">
+                    <div class="modal-content">
+                        <img src="../assets/images/pods.png" style="width: 40px; height: 40px;" >
+                        <span (click)="closePopup()" class="close-button">&times;</span>
+
+                        <div class="replica-section">
+                            <i style="font-weight: bold; color: black;">Frontend</i>
+                            <div class="counter">
+                                <input type="text" id="count1" [value]="count1" readonly class="counter-input" />
+                                <button (click)="decr1()" class="flech-button">-</button>
+                                <button (click)="incr1()" class="flech-button">+</button>
+                            </div>
+                        </div>
+
+                        <div class="replica-section">
+                            <i style="font-weight: bold; color: black;">Backend</i>
+                            <div class="counter">
+                                <input type="text" id="count2" [value]="count2" readonly class="counter-input" />
+                                <button (click)="decr2()" class="flech-button">-</button>
+                                <button (click)="incr2()" class="flech-button">+</button>
+                            </div>
+                        </div>
+
+                        <div class="replica-section">
+                            <i style="font-weight: bold; color: black;">Base de données</i>
+                            <div class="counter">
+                                <input type="text" id="count3" [value]="count3" readonly class="counter-input" />
+                                <button (click)="decr3()" class="flech-button">-</button>
+                                <button (click)="incr3()" class="flech-button">+</button>
+                            </div>
+                        </div>
+
+                        <button (click)="closePopup()" style="color: blue;" class="submit-button">Valider</button>
+                    </div>
+                </div>  
+
+                <div class="form-group">
+                    <label for="email">Nombre de noeuds</label>
+                    <div style="display: flex;">
+                        <button (click)="decrement() " style="background-color: transparent;">-</button>
+                        <input type="text" id="count" [value]="count" readonly style="width: 60px; text-align: center; margin: 0 10px; background-color: transparent; color: white;"> 
+                        <button (click)="increment()" style="background-color: transparent;">+</button> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nom d'hébergement</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="nom" style="background-color: transparent; color: white;" placeholder="Entrez votre nom" required>
+                    <button (click)="googlelcloud()" style="background-color: transparent;">valider</button>
+                </div>
+            </form>
+            <div *ngIf="showNotification" [ngClass]="notificationClass" class="notification">
+                {{ notificationMessage }}
+              </div>
+        </div>
+    </div>
+   
+</body>
+</html>

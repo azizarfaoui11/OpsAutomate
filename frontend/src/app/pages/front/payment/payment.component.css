@@ -1,0 +1,117 @@
+/* Container principal */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divise la grille en deux colonnes égales */
+    gap: 20px; /* Espacement entre les éléments */
+    max-width: 600px; /* Largeur maximale du conteneur */
+    margin: 0 auto; /* Centrer le conteneur */
+  }
+  
+  /* Boîte de vérification */
+  .verification-box {
+    grid-column: span 2; /* S'étend sur les deux colonnes */
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Groupes de champs */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .input-group input {
+    width: 100%; /* Largeur pleine du champ d'entrée */
+    padding: 12px; /* Augmentation de la taille du padding pour une meilleure apparence */
+    font-size: 16px; /* Taille de police plus grande */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur totale */
+  }
+  
+  /* Bouton de soumission */
+  .btn {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Transition fluide pour l'arrière-plan */
+  }
+  
+  .btn:hover {
+    background: #0056b3;
+  }
+  
+  /* Zone d'affichage du code */
+  .code-display {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Entrées individuelles du code */
+  .code-input {
+    display: flex;
+  }
+  
+  .code-input input {
+    flex: 1; /* Chaque champ d'entrée prend une part égale de l'espace disponible */
+    padding: 10px;
+    margin-right: 5px; /* Espacement entre les cases */
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px; /* Taille de police plus grande pour les codes */
+  }
+  
+  .code-input input:last-child {
+    margin-right: 0; /* Pas de marge à droite pour le dernier champ */
+  }
+  .notification-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+  
+  .notification {
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: fadeOut 4s ease-in;
+  }
+  
+  .notification-success {
+    background-color: #4caf50; /* Vert pour succès */
+    color: white;
+  }
+  
+  .notification-error {
+    background-color: #f44336; /* Rouge pour échec */
+    color: white;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+  

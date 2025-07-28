@@ -1,0 +1,42 @@
+<div class="aa">
+    <form (ngSubmit)="onSubmit()" class="form-container" id="aa">
+        <div class="aaa" style="margin-top: 30px;">
+            <label for="nom" class="form-label">Nom du Groupe Ressource</label>
+            <input type="text" id="nom" [(ngModel)]="grp.nom" name="nom" required class="form-input">
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   id="build" 
+                   [(ngModel)]="grp.build" name="build"> <!-- Liaison à la propriété build -->
+            <label class="form-check-label" for="build">Chaine CI</label>
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   id="devops" 
+                   [(ngModel)]="grp.devops" name="devops"> <!-- Liaison à la propriété devops -->
+            <label class="form-check-label" for="devops">Chaine CD</label>
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   id="test" 
+                   [(ngModel)]="grp.test" name="test"> <!-- Liaison à la propriété test -->
+            <label class="form-check-label" for="test">Tests</label>
+        </div>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   id="deploy" 
+                   [(ngModel)]="grp.deploy" name="deploy"> <!-- Liaison à la propriété deploy -->
+            <label class="form-check-label" for="deploy">Hébergement</label>
+        </div>
+        
+        <button type="submit">Ajouter Groupe Ressource</button>
+    </form>
+</div>

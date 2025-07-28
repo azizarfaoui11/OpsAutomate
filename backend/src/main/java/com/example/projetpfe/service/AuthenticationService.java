@@ -2,13 +2,8 @@ package com.example.projetpfe.service;
 
 import com.example.projetpfe.model.AuthenticationResponse;
 import com.example.projetpfe.model.RegistrationRequest;
-import com.example.projetpfe.model.user.Token;
-import com.example.projetpfe.model.user.TokenRepository;
-import com.example.projetpfe.model.user.UserRepository;
+import com.example.projetpfe.model.user.*;
 import com.example.projetpfe.security.*;
-import com.example.projetpfe.model.user.User;
-
-
 
 
 import com.sun.tools.jconsole.JConsoleContext;
@@ -216,6 +211,8 @@ public class AuthenticationService {
         emailMessage.setTo(email);
         emailMessage.setSubject(subject);
         emailMessage.setText(message);
+        emailMessage.setFrom("opsautomateservice@outlook.com"); // Ajouter cette ligne
+
 
         mailSender.send(emailMessage);
     }
@@ -276,7 +273,10 @@ public class AuthenticationService {
 
 
 
-
+    public Usersession getCurrentUserSession(String principalName) {
+        User user = ur.findByUsername(principalName);
+        return new Usersession(user.getUsername(), user.getId());
+    }
 
 
 

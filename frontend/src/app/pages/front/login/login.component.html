@@ -1,92 +1,180 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .login-container {
-            max-width: 500px; 
-            margin: auto;
-            padding: 4rem;
-            background-color: #f7f7f7;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+<!-- Basic Page Needs
+================================================== -->
+<title>Hireo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="C://pfefront//pfeFront//src//assets//csss//colors//blue.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+     .error-message {
+            color: red;
+            margin-top: 10px;
         }
-        .login-container h2 {
-            margin-bottom: 1.5rem;
-        }
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #007bff;
-        }
-        .input-group-text {
-            background-color: #f7f7f7;
-            border: none;
-            border-right: 1px solid #ced4da;
-        }
-        .input-group .form-control {
-            border-left: none;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-    </style>
+</style>
 </head>
 <body>
-    <div class="d-flex vh-100 justify-content-center align-items-center">
-        <div class="login-container">
-            <h2 class="text-center">Sign In</h2>
-            <form>
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm8-7a7 7 0 0 1 5.468 11.37C12.97 10.226 10.964 9 8 9c-2.964 0-4.97 1.226-5.468 3.37A7 7 0 0 1 8 1z"/>
-                                </svg>
-                            </span>
-                        </div>
-                        <input [(ngModel)]="authRequest.username" name="username" type="text" class="form-control" id="username" placeholder="Enter username" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
-                                    <path d="M8 1a4 4 0 0 1 4 4v3h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1V5a4 4 0 0 1 4-4zm-3 4v3h6V5a3 3 0 1 0-6 0z"/>
-                                </svg>
-                            </span>
-                        </div>
-                        <input  [(ngModel)]="authRequest.password" name="password" type="password" class="form-control" id="password" placeholder="Enter password" required>
-                    </div>
-                </div>
-                <button type="submit" (click)="loginUser()" class="btn btn-primary btn-block">Sign In</button>
-                <div class="text-center mt-3">
-                    <app-reset-password-request></app-reset-password-request>
-                </div>
-                <div class="text-center mt-2">
-                    <span>Don't have an account? <a href="/signup">Sign Up</a></span>
-                </div>
-            </form>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; height:70px; margin-top: 1px;"  >
+        <div class="container-fluid">
+          <a class="navbar-brand" style="color: black;" href="#">OpsAutomate</a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/ressource" style="color: black;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/ressource" style="color: black;">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact" style="color: black;">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/essaie" style="color: black;">Tests</a>
+              </li>
+            </ul>
+            
+            <div class="dropdown" style="margin-top: 1px;">
+              <button class="btn btn-primary dropdown-toggle " style="background-color: #007BFF; height: 35px ; width: 130px; color: white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Our Services
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Build</a></li>
+                <li><a class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Test de qualité">Test</a></li>
+                <li><a class="dropdown-item" href="#">Deploy</a></li>
+              </ul>
+            </div>
+            
+            <form class="d-flex ms-2" style="margin-top: 32px; margin-left: 10px;">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 35px;">
+            </form>
+          </div>
+        </div>
+      </nav>
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Log In</h2>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>Log In</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3>We're glad to see you again!</h3>
+					<span>Don't have an account? <a href="/signup" style="color: blue;">Sign Up!</a></span>
+				</div>
+					
+				<!-- Form -->
+                <form (ngSubmit)="loginUser()">
+                    <div *ngIf="errorMessage" class="error-message">
+                        {{ errorMessage }}
+                    </div>
+					<div class="input-with-icon-left">
+						<i> <svg style="margin-top: 14px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm8-7a7 7 0 0 1 5.468 11.37C12.97 10.226 10.964 9 8 9c-2.964 0-4.97 1.226-5.468 3.37A7 7 0 0 1 8 1z"/>
+                        </svg></i>
+                        <input [(ngModel)]="authRequest.email" name="email" type="text" class="form-control" id="email" placeholder="Enter email" required>
+					</div>
+
+					<div class="input-with-icon-left">
+                               <i>
+                                  <svg style="margin-top: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-lock" viewBox="0 0 16 16">
+                                        <path d="M8 1a4 4 0 0 1 4 4v3h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1V5a4 4 0 0 1 4-4zm-3 4v3h6V5a3 3 0 1 0-6 0z"/>
+                                    </svg>
+                               </i>
+                               <input  [(ngModel)]="authRequest.password" name="password" type="password" class="form-control" id="password" placeholder="Enter password" required>
+					</div>
+                    <div class="text-center mt-3" style="margin-right: 390px;">
+                        <app-reset-password-request></app-reset-password-request>
+                    </div>		
+                    <button class="button full-width button-sliding-icon ripple-effect margin-top-10" style="color: white; background-color: blue;" type="submit" >Log In <i class="icon-material-outline-arrow-right-alt"></i></button>
+	
+                	</form>
+				
+				<!-- Button -->
+				
+				<!-- Social Login -->
+				<div class="social-login-separator"><span>or</span></div>
+				<div class="social-login-buttons">
+					<button class="facebook-login ripple-effect"><i class="icon-brand-facebook-f"></i> Log In via Facebook</button>
+					<button class="google-login ripple-effect"><i class="icon-brand-google-plus-g"></i> Log In via Google+</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- Scripts
+================================================== -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.min.js"></script>
+<script src="js/mmenu.min.js"></script>
+<script src="js/tippy.all.min.js"></script>
+<script src="js/simplebar.min.js"></script>
+<script src="js/bootstrap-slider.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/snackbar.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/counterup.min.js"></script>
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/custom.js"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
 </body>
 </html>
-
-  
-

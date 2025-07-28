@@ -123,8 +123,9 @@ public class AuthenticationController {
 
     }*/
 
-
-    @GetMapping("/me")
+/*
+  //fonctionne correctement
+   @GetMapping("/me")
     public ResponseEntity<Usersession> getCurrentUser(Principal principal) {
         User user =userrepo.findByFirstname(principal.getName());
         //User user = userrepo.findByEmail(principal.getName());
@@ -133,7 +134,13 @@ public class AuthenticationController {
        //User prinuser= user.getFirstname();
         return ResponseEntity.ok(usersess);
     }
+*/
 
+    @GetMapping("/me")
+    public ResponseEntity<Usersession> getCurrentUser(Principal principal) {
+        Usersession usersess = service.getCurrentUserSession(principal.getName());
+        return ResponseEntity.ok(usersess);
+    }
     //   *******for backend dashboard ******** //
 
     @GetMapping("/getallusers")
@@ -171,7 +178,7 @@ public class AuthenticationController {
     {
 
         User u = userrepo.findById(id).orElseThrow();
-        u.setFirstname(user.getFirstname());
+        //u.setFirstname(user.getFirstname());
         u.setLastname((user.getLastname()));
         u.setUsername(user.getUsername());
         u.setEmail(user.getEmail());

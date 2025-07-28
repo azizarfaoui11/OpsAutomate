@@ -1,0 +1,60 @@
+
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Formulaire d'ajout du subscription</h2>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #subscForm="ngForm" method="post">
+         
+          <div class="form-group row">
+            <label for="nom" class="col-sm-3 col-form-label">Nom:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="subsc.nom" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="typesubsc" class="col-sm-3 col-form-label">Etat:</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="typesubsc" name="typesubsc" [(ngModel)]="subsc.typesubsc" required>
+                <option value="annuel">Annuel</option>
+                <option value="semestriel">Semestriel</option>
+                <option value="mensuel">Mensuel</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="etat" class="col-sm-3 col-form-label">Etat:</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="etat" name="etat" [(ngModel)]="subsc.etat" required>
+                <option value="actif">actif</option>
+                <option value="inactif">inactif</option>
+                <option value="annule">annule</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dated" class="col-sm-3 col-form-label">Date debut:</label>
+            <div class="col-sm-9">
+              <input type="cout" class="form-control" id="dated" name="dated" [(ngModel)]="subsc.datedeb" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="datef" class="col-sm-3 col-form-label">Date fin:</label>
+            <div class="col-sm-9">
+              <input type="cout" class="form-control" id="datef" name="datef" [(ngModel)]="subsc.datefin" required>
+            </div>
+          </div>
+          
+          
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" class="btn btn-primary">Ajouter subscription</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

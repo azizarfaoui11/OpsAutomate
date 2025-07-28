@@ -173,7 +173,11 @@
 .mat-menu-item:hover {
   background-color: #f5f5f5; /* Couleur de fond au survol */
 }
+.progress{
+  margin-left: 60px;
+  margin-right: 60px;
 
+}
   
   
   

@@ -1,111 +1,69 @@
 package com.example.projetpfe.service;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class PipelineParams {
-
     @JsonProperty("targetstage1")
-
     private String targetstage1;
     @JsonProperty("targetstage2")
-
     private String targetstage2;
     @JsonProperty("targetstage3")
-
     private String targetstage3;
     @JsonProperty("targetstage4")
-
     private String targetstage4;
     @JsonProperty("targetstage5")
-
     private String targetstage5;
     @JsonProperty("targetstage6")
-
     private String targetstage6;
-
     @JsonProperty("targetstage7")
-
     private String targetstage7;
     @JsonProperty("targetstage8")
-
     private String targetstage8;
     @JsonProperty("targetstage9")
-
     private String targetstage9;
     @JsonProperty("targetstage10")
-
     private String targetstage10;
     @JsonProperty("targetstage11")
-
     private String targetstage11;
     @JsonProperty("targetstage12")
-
     private String targetstage12;
     @JsonProperty("targetstage13")
-
     private String targetstage13;
     @JsonProperty("targetstage14")
-
     private String targetstage14;
-
     @JsonProperty("targetstage15")
-
     private String targetstage15;
     @JsonProperty("targetstage16")
-
     private String targetstage16;
-
-
     @JsonProperty("targetstage17")
-
     private String targetstage17;
     @JsonProperty("targetstage18")
-
     private String targetstage18;
     @JsonProperty("targetstage19")
-
     private String targetstage19;
     @JsonProperty("targetstage20")
-
     private String targetstage20;
     @JsonProperty("targetstage21")
-
     private String targetstage21;
     @JsonProperty("targetstage22")
-
     private String targetstage22;
     @JsonProperty("targetstage23")
-
     private String targetstage23;
     @JsonProperty("targetstage24")
-
     private String targetstage24;
     @JsonProperty("targetstage25")
-
     private Integer targetstage25;
     @JsonProperty("targetstage26")
-
     private Integer targetstage26;
-
-
     @JsonProperty("targetstage27")
-
     private Integer targetstage27;
-
-
     @JsonProperty("targetstage28")
-
     private String targetstage28;
-
-
     @JsonProperty("targetstage29")
-
     private String targetstage29;
-
-
     @JsonProperty("targetstage30")
-
     private String targetstage30;
+
+
+
 
 
 
@@ -152,6 +110,7 @@ public class PipelineParams {
     public void setTargetStage5(String targetstage5) {
         this.targetstage5 = targetstage5;
     }
+
 
     public String getTargetStage6() {
         return targetstage6;
@@ -353,6 +312,9 @@ public class PipelineParams {
     public void setTargetStage30(String targetstage30) {
         this.targetstage30= targetstage30;
     }
+
+
+
 
 
 

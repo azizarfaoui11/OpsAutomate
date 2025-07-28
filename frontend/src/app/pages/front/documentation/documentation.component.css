@@ -35,6 +35,11 @@
     display: block;
     margin: auto;
 }
-
+.custom-slide-background {
+    background-color: #3c31d7; /* Remplacez cette couleur par celle que vous souhaitez */
+}
+.custom-body-background {
+    background-color: #b9dde6b7; /* Remplacez cette couleur par celle que vous souhaitez */
+}
 
       

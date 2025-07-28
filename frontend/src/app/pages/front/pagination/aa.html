@@ -1,0 +1,20 @@
+<div class="push-options">
+    <span>2) Push Docker Image</span>
+    <div class="radio-group">
+      <fieldset class="radio-group">
+        <legend>Options</legend>
+        <label class="radio-label">
+          <input type="radio" name="options" [(ngModel)]="selectedOption1" value="option1" [disabled]="!isCheckedYesss">
+          Use previous artifact
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="options" [(ngModel)]="selectedOption4" value="option4" [disabled]="!isCheckedYesss">
+          Generate Dockerfile
+        </label>
+        <div class="form-check form-switch" style="margin-left: 20px">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="isCheckedYesss" (change)="updateTargetStage6()">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+        </div>
+      </fieldset>
+    </div>
+  </div>

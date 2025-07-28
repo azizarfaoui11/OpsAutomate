@@ -1,0 +1,71 @@
+.aa {
+    max-width: 400px;
+	height: 450px;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+#aa{ max-width: 350px;
+	height: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    height: 40px; /* Ajuster la hauteur selon votre besoin */
+    padding: 0 10px;
+    border: 1px solid #ccc; /* Bordure grise claire */
+    border-radius: 4px; /* Coins arrondis */
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #6200ea; /* Couleur de bordure lorsqu'il est au focus */
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #e3f2fd;
+    color: rgb(14, 2, 2);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e3f2fd;
+}

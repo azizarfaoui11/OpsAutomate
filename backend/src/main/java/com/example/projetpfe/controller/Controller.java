@@ -1,4 +1,5 @@
 package com.example.projetpfe.controller;
+import com.example.projetpfe.model.HebergementParams;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,14 +46,7 @@ public class Controller {
         System.out.println("targetstage20: " + pipelineParams.getTargetStage20());
         System.out.println("targetstage21: " + pipelineParams.getTargetStage21());
         System.out.println("targetstage22: " + pipelineParams.getTargetStage22());
-       // System.out.println("targetstage23: " + pipelineParams.getTargetStage23());
-       // System.out.println("targetstage24: " + pipelineParams.getTargetStage24());
-       // System.out.println("targetstage25: " + pipelineParams.getTargetStage25());
-        //System.out.println("targetstage26: " + pipelineParams.getTargetStage26());
-        //System.out.println("targetstage27: " + pipelineParams.getTargetStage27());
-       // System.out.println("targetstage28: " + pipelineParams.getTargetStage28());
-       // System.out.println("targetstage29: " + pipelineParams.getTargetStage29());
-        //System.out.println("targetstage30: " + pipelineParams.getTargetStage30());
+
 
         s.triggerJenkinsPipeline(pipelineParams);
 
@@ -75,7 +69,7 @@ public class Controller {
 
 
 
-               s.pipelinewindows(pipelineParams);
+                  s.pipelineSelenuim(pipelineParams);
 
 
 
@@ -98,6 +92,35 @@ public class Controller {
         return ResponseEntity.ok("Pipeline triggered successfully");
     }
 
+    @PostMapping("/pipeline4")
+    public ResponseEntity<String> pipelinSonarJunit(@RequestBody PipelineParams pipelineParams) {
+
+        System.out.println("targetstage03: " + pipelineParams.getTargetStage3());
+        System.out.println("targetstage11: " + pipelineParams.getTargetStage11());
+
+
+
+         s.pipelineSonarandJunit(pipelineParams);
+
+        return ResponseEntity.ok("Pipeline triggered successfully");
+    }
+    @PostMapping("/pipeline5")
+    public ResponseEntity<String> pipelindeployGcp(@RequestBody HebergementParams heberg) {
+
+        System.out.println("frontend: " + heberg.getFrontend());
+        System.out.println("backend: " + heberg.getBackend());
+        System.out.println("database: " + heberg.getDb());
+        System.out.println("Noueds: " + heberg.getNoueds());
+        System.out.println("nom hebrgement: " + heberg.getNom());
+
+
+
+
+        s.pipelinedeployGCP(heberg);
+
+        return ResponseEntity.ok("Pipeline triggered successfully");
+    }
+
 
    /* @GetMapping("/sonarqube-dashboard")
     public ResponseEntity<String> getSonarQubeDashboardUrl(
@@ -110,7 +133,7 @@ public class Controller {
         return ResponseEntity.ok(sonarQubeDashboardUrl);
     }*/
 
-    @GetMapping(    "/sonarqube-url")
+    @GetMapping("/sonarqube-url")
     public ResponseEntity<String> getSonarQubeUrl() {
         String sonarQubeUrl = s.getSonarQubeDashboardUrl();
        // System.out.println("URL: " + this.getSonarQubeUrl());

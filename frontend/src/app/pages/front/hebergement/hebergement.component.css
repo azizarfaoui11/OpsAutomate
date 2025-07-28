@@ -1,0 +1,206 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif; /* Choix d'une police de caractères */
+}
+
+.card-header {
+   
+    color: black;
+    padding: 15px; 
+    position: relative; 
+    z-index: 1; 
+}
+
+.background {
+    background-image: url('/assets/images/deployy.jpg');
+    background-size: cover; 
+    background-position: center; 
+    height: 100%; 
+    z-index: 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer le contenu verticalement */
+    align-items: center; /* Centrer le contenu horizontalement */
+}
+
+.content {
+    
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre autour du formulaire */
+}
+
+label {
+    display: block; /* Pour que chaque label occupe toute la largeur */
+    margin: 10px 0 5px; /* Espacement vertical */
+    color: white;
+}
+form {
+    display: flex; /* Flex pour aligner les éléments horizontalement */
+    flex-direction: column; /* Alignement de ligne */
+    flex-wrap: wrap; /* Permet le retour à la ligne si l'espace n'est pas suffisant */
+    gap: 30px; /* Espacement entre les champs */
+}
+.form-group {
+    display: flex;
+    flex-direction: column; /* Éléments étiquettes et inputs en colonne */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Remplir toute la largeur du conteneur */
+    padding: 10px;
+    margin-bottom: 15px; /* Espacement entre les éléments */
+    border: 1px solid #ccc; /* Couleur de la bordure */
+    border-radius: 4px; /* Coins arrondis */
+}
+
+button {
+    background-color: #007BFF; /* Couleur du bouton */
+    color: white;
+    padding: 10px 15px; /* Espacement intérieur du bouton */
+    border: none; /* Supprimer la bordure par défaut */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Changer le curseur sur hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Couleur lors du survol */
+}
+
+
+.form-group {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.replica-section {
+    margin-bottom: 15px;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.counter-input {
+    width: 60px;
+    text-align: center;
+    margin: 0 10px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.flech-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.flech-button:hover {
+    background-color: darkblue;
+}
+
+/* Styles pour la modale */
+.modal {
+    display: none; /* Masquée par défaut */
+    position: fixed; /* Reste au même emplacement */
+    z-index: 1; /* Au-dessus des éléments */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    overflow: auto; /* Activer le défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.4); /* Couleur de fond avec transparence */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 300px; /* Largeur de la modale */
+    height: 440px;
+    border-radius: 8px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-button:hover {
+    background-color: darkblue;
+}
+.notification {
+    position: fixed;
+    top: 62px;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+.notification-success {
+    background-color: rgb(49, 50, 49); /* vert clair */
+    color: white ;/* texte vert foncé */
+    top: 20px;
+    left: 1250px;
+    margin-top: 25px;
+    margin-right: 45px;
+  }
+  
+  
+  .notification-error {
+    margin-top: 25px;
+    margin-right: 45px;
+    right: 10px;
+    left: 1070px;
+    background-color: #f8d7da; /* rouge clair */
+    color: #951421; /* texte rouge foncé */
+  }

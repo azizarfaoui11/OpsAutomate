@@ -1,4 +1,5 @@
 package com.example.projetpfe.service;
+import com.example.projetpfe.model.HebergementParams;
 import com.example.projetpfe.model.user.User;
 import com.example.projetpfe.service.AppConfig;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -46,56 +47,17 @@ public class srv {
             "CMD [\"nginx\", \"-g\", \"daemon off;\"]";
 
 
-
-
-
-
-
-
-
     public void triggerJenkinsPipeline(@RequestBody PipelineParams params) {
-        //String targetstage1 = "clone";
-        //String targetstage2 = "build";
-        //String targetstage3 = "sonarqube";
-       String a= params.getTargetStage1();
-       String b= params.getTargetStage2();
-       String c= params.getTargetStage3();
-       String d= params.getTargetStage4();
-        String e= params.getTargetStage5();
-        String f= params.getTargetStage6();
-        String j = params.getTargetStage7();
-        String h= params.getTargetStage8();
-        String i= params.getTargetStage9();
-        String g= params.getTargetStage10();
-        String k= params.getTargetStage11();
-        String l= params.getTargetStage12();
-        String m= params.getTargetStage13();
-        String n= params.getTargetStage14();
-        String o= params.getTargetStage15();
-        String p= params.getTargetStage16();
-        String aa= params.getTargetStage17();
-        String bb= params.getTargetStage18();
-        String cc= params.getTargetStage19();
-        String dd= params.getTargetStage20();
-        String ee= params.getTargetStage21();
-        String ff=params.getTargetStage22();
-        String gg=params.getTargetStage23();
-        String hh=params.getTargetStage24();
-        Integer ii=params.getTargetStage25();
-        Integer jj=params.getTargetStage26();
-        Integer kk=params.getTargetStage27();
+        String a= params.getTargetStage1();   String b= params.getTargetStage2();   String c= params.getTargetStage3();
+       String d= params.getTargetStage4();    String e= params.getTargetStage5();   String f= params.getTargetStage6();
+        String j = params.getTargetStage7();  String h= params.getTargetStage8();   String i= params.getTargetStage9();
+        String g= params.getTargetStage10();  String k= params.getTargetStage11();  String l= params.getTargetStage12();
+        String m= params.getTargetStage13();  String n= params.getTargetStage14();  String o= params.getTargetStage15();
+        String p= params.getTargetStage16();  String aa= params.getTargetStage17(); String bb= params.getTargetStage18();
+        String cc= params.getTargetStage19(); String dd= params.getTargetStage20(); String ee= params.getTargetStage21();
+        String ff=params.getTargetStage22();  String gg=params.getTargetStage23();  String hh=params.getTargetStage24();
+        Integer ii=params.getTargetStage25(); Integer jj=params.getTargetStage26(); Integer kk=params.getTargetStage27();
 
-
-
-
-
-
-
-
-
-
-        //windows
-        // String jenkinsUrl = "http://localhost:8080/job/test/buildWithParameters/";
         String jenkinsUrl = "http://192.168.33.10:8080/job/projetpfe/buildWithParameters?TARGET_STAGE1=" +a+ "&TARGET_STAGE2=" +b
                 + "&TARGET_STAGE3=" +c+"&GITHUB_URL="+d+"&TARGET_STAGE5=" +e
                 +"&TARGET_STAGE6="+f+"&TARGET_STAGE7="+j+"&TARGET_STAGE8="+h
@@ -106,47 +68,21 @@ public class srv {
                 +"&TARGET_STAGE22="+ff+"&TARGET_STAGE23="+gg+"&TARGET_STAGE24="+hh
                 +"&TARGET_STAGE25="+ii+"&TARGET_STAGE26="+jj+"&TARGET_STAGE27="+kk;
 
-        // win
-        //  String username = "aziz";
         String username = "aziz";
-
-        //win
-        // String apiToken = "11ad7512add4d956ec5530229b6ba925f6";
-        String apiToken = "11f72b60ec8526a5e0697bf7b2559686ab";
-
-
-        // Construire les paramètres de la requête
-
+        String apiToken = "1168481e5db38ccb0958eedcb0a5437cd4";
         MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
-
-           /* requestBody.add("", TARGET_STAGE1);
-        requestBody.add("", TARGET_STAGE2);
-        requestBody.add("", TARGET_STAGE3);*/
-
-
-
-
-
-        // Construire l'en-tête d'authentification
         String authString = username + ":" + apiToken;
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + Base64.getEncoder().encodeToString(authString.getBytes()));
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-        // Construire l'entité de requête HTTP avec les paramètres et l'en-tête
-        // HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
-
-
-        // Effectuer la requête HTTP POST
-        ResponseEntity<String> responseEntity = restTemplate.exchange(jenkinsUrl, HttpMethod.POST, requestEntity, String.class);
-
-        // Vous pouvez traiter la réponse ici si nécessaire
-    }
+        ResponseEntity<String> responseEntity = restTemplate.exchange(jenkinsUrl, HttpMethod.POST, requestEntity, String.class);}
 
 
 
-    public void pipelinewindows(@RequestBody PipelineParams params) {
+
+
+    public void pipelineSelenuim(@RequestBody PipelineParams params) {
         //String a= "selenuim";
         String  a=params.getTargetStage28();
         String b= params.getTargetStage29();
@@ -155,34 +91,16 @@ public class srv {
         //windows
         String jenkinsUrl = "http://localhost:8084/job/test1.1/buildWithParameters?TARGET_URL="+a
         +"&ELEMENT_ID="+b+"&CLASS_NAME="+c;
-       // String jenkinsUrl = "http://192.168.33.10:8080/job/projetpfe/buildWithParameters?TARGET_STAGE1=" +a;
-
-        // win
           String username = "aziz";
 
-        //win
          String apiToken = "11ad7512add4d956ec5530229b6ba925f6";
-        //String apiToken = "11f72b60ec8526a5e0697bf7b2559686ab";
 
-
-
-
-
-
-
-
-        // Construire l'en-tête d'authentification
         String authString = username + ":" + apiToken;
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + Base64.getEncoder().encodeToString(authString.getBytes()));
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-        // Construire l'entité de requête HTTP avec les paramètres et l'en-tête
-        // HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
 
-
-        // Effectuer la requête HTTP POST
         ResponseEntity<String> responseEntity = restTemplate.exchange(jenkinsUrl, HttpMethod.POST, requestEntity, String.class);
 
     }
@@ -195,22 +113,62 @@ public class srv {
         Integer d=params.getTargetStage26();
         Integer e=params.getTargetStage27();
 
-        //windows
-        //String jenkinsUrl = "http://localhost:8084/job/test1.1/buildWithParameters?TARGET_URL="+a
-          //      +"&ELEMENT_ID="+b+"&CLASS_NAME="+c;
         String jenkinsUrl = "http://192.168.33.10:8080/job/jmeter/buildWithParameters?TARGET_STAGE23="+a+"&TARGET_STAGE24="+b
                 +"&TARGET_STAGE25="+c+"&TARGET_STAGE26="+d+"&TARGET_STAGE27=" +e;
 
-
         String username = "aziz";
-        String apiToken = "11f72b60ec8526a5e0697bf7b2559686ab";
+        String apiToken = "1168481e5db38ccb0958eedcb0a5437cd4";
         MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
         String authString = username + ":" + apiToken;
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + Base64.getEncoder().encodeToString(authString.getBytes()));
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        // Construire l'entité de requête HTTP avec les paramètres et l'en-tête
-        // HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
+        HttpEntity<String> requestEntity = new HttpEntity<>(headers);
+
+        ResponseEntity<String> responseEntity = restTemplate.exchange(jenkinsUrl, HttpMethod.POST, requestEntity, String.class);
+
+    }
+
+
+    public void pipelineSonarandJunit(@RequestBody PipelineParams params) {
+        String  a =params.getTargetStage3();
+        String b= params.getTargetStage11();
+
+        String jenkinsUrl = "http://192.168.33.10:8080/job/test/buildWithParameters?TARGET_STAGE3="+a+"&TARGET_STAGE11="+b;
+
+        String username = "aziz";
+        String apiToken = "1168481e5db38ccb0958eedcb0a5437cd4";
+        MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
+        String authString = username + ":" + apiToken;
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic " + Base64.getEncoder().encodeToString(authString.getBytes()));
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        HttpEntity<String> requestEntity = new HttpEntity<>(headers);
+
+
+        ResponseEntity<String> responseEntity = restTemplate.exchange(jenkinsUrl, HttpMethod.POST, requestEntity, String.class);
+
+    }
+
+    //pipeline deploy GCP
+
+    public void pipelinedeployGCP(@RequestBody HebergementParams params) {
+        String  a =params.getFrontend();
+        String b= params.getBackend();
+        String c= params.getDb();
+        String d = params.getNoueds();
+        String e = params.getNom();
+
+        String jenkinsUrl = "http://192.168.33.10:8080/job/deployaks/buildWithParameters?REPLICAS_BACKEND="+b+"&REPLICAS_FRONTEND="+a+
+                "&REPLICAS_DB="+c+"&NOMBRE_NOUEDS="+d+"&NOM_HEBERGEMENT="+e;
+
+        String username = "aziz";
+        String apiToken = "1168481e5db38ccb0958eedcb0a5437cd4";
+        MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
+        String authString = username + ":" + apiToken;
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Basic " + Base64.getEncoder().encodeToString(authString.getBytes()));
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
 
 
@@ -219,12 +177,21 @@ public class srv {
     }
 
 
+
+
+
+
+
+
+
+
+
     public String getSonarQubeDashboardUrl() {
         String sonarQubeUrl = "";
         try {
-            String jenkinsUrl = "http://192.168.33.10:8080/job/projetpfe/lastBuild/consoleText";
+            String jenkinsUrl = "http://192.168.33.10:8080/job/test/lastBuild/consoleText";
             String username = "aziz";
-            String apiToken = "112cdd86078587b90e547793e86cae71e3";
+            String apiToken = "1168481e5db38ccb0958eedcb0a5437cd4";
             String authString = username + ":" + apiToken;
             String authHeader = "Basic " + Base64.getEncoder().encodeToString(authString.getBytes());
             URL url = new URL(jenkinsUrl);
@@ -283,7 +250,7 @@ public class srv {
         try {
             String jenkinsUrl = "http://192.168.33.10:8080/job/projetpfe/lastBuild/consoleText";
             String username = "aziz";
-            String apiToken = "112cdd86078587b90e547793e86cae71e3";
+            String apiToken = "1168481e5db38ccb0958eedcb0a5437cd4";
             String authString = username + ":" + apiToken;
             String authHeader = "Basic " + Base64.getEncoder().encodeToString(authString.getBytes());
             URL url = new URL(jenkinsUrl);

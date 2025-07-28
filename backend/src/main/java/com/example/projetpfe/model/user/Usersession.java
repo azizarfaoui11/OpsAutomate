@@ -1,20 +1,20 @@
 package com.example.projetpfe.model.user;
 
 public class Usersession {
-    private String firstname;
+    private String username;
     private Integer id;
-    public Usersession(String firstname, Integer id) {
-        this.firstname = firstname;
+    public Usersession(String username, Integer id) {
+        this.username = username;
         this.id=id;
     }
 
     // Getter and Setter
-    public String getFirstname() {
-        return firstname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setUsername(String firstname) {
+        this.username = username;
     }
 
     public Integer getId()

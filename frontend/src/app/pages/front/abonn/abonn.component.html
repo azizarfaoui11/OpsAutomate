@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>Hireo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+
+<link rel="stylesheet" href="C://pfefront//pfeFront//src//assets//csss//colors//blue.css">
+<style>
+    .pay-as-you-go-title {
+        color: blue; /* Remplacez par la couleur souhaitée */
+    }
+    .pricing-plan {
+        border: 1px solid #ddd; /* Ajout d'une bordure */
+        padding: 20px; 
+        border-radius: 8px; 
+        transition: box-shadow 0.3s;
+    }
+    .pricing-plan:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    .button {
+        background-color: #007bff; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        text-align: center; 
+        text-decoration: none; 
+        display: inline-block;
+    }
+    .button:hover {
+        background-color: #0056b3; 
+    }
+</style>
+
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; height:70px;"  >
+        <div class="container-fluid">
+          <a class="navbar-brand" style="color: black;" href="#">OpsAutomate</a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/ressource" style="color: black;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/ressource" style="color: black;">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact" style="color: black;">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/essaie" style="color: black;">Tests</a>
+              </li>
+            </ul>
+            
+            <div class="dropdown" style="margin-top: 1px;">
+              <button class="btn btn-primary dropdown-toggle " style="background-color: #007BFF; height: 35px ; width: 130px; color: white;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Our Services
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Build</a></li>
+                <li><a class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Test de qualité">Test</a></li>
+                <li><a class="dropdown-item" href="#">Deploy</a></li>
+              </ul>
+            </div>
+            
+            <form class="d-flex ms-2" style="margin-top: 32px; margin-left: 10px;">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 35px;">
+            </form>
+          </div>
+        </div>
+      </nav>
+
+<!-- Header Container
+================================================== -->
+
+		
+				<!--  User Notifications / End -->
+<header></header>
+				
+
+						
+
+				
+
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient" style="margin-top: 1px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Pricing Plans</h2>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="home">Home</a></li>
+						<li><a href="ressource">Ressources</a></li>
+						<li>Pricing Plans</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+<div class="container" >
+	<div class="row">
+
+		<div class="col-xl-12">
+
+			<!-- Billing Cycle  -->
+			<div class="billing-cycle-radios margin-bottom-70">
+				<div class="radio billed-monthly-radio">
+					<input id="radio-5" name="radio-payment-type" type="radio" checked>
+					<label for="radio-5"><span class="radio-label"></span> Billed Monthly</label>
+				</div>
+
+				<div class="radio billed-yearly-radio">
+					<input id="radio-6" name="radio-payment-type" type="radio">
+					<label for="radio-6"><span class="radio-label"></span> Billed Yearly <span class="small-label">Save 10%</span></label>
+				</div>
+			</div>
+
+			<!-- Pricing Plans Container -->
+			<div class="pricing-plans-container" >
+
+				<!-- Plan -->
+				
+				<div class="pricing-plan" >
+					<h3  style="color: rgb(8, 0, 255);">Abonnement Mensuel</h3>
+					<p class="margin-top-10">  Profitez de tous nos services et contenus premium pour une faible mensualité. Idéal pour ceux qui souhaitent explorer nos offres sans engagement à long terme !</p>
+					<div class="pricing-plan-label billed-monthly-label"  style="color: rgb(8, 0, 255);"><strong>$300</strong>/ monthly</div>
+					<div class="pricing-plan-label billed-yearly-label"><strong>$205</strong>/ yearly</div>
+
+					<a class="button full-width margin-top-20" (click)="redirectionpaymentbyMonth()" style="background-color: rgb(8, 0, 255);">Buy Now</a>
+				</div>
+			
+
+				<!-- Plan -->
+				<div class="pricing-plan recommended">
+                    <div class="recommended-badge"  style="background-color: rgb(8, 0, 255);">Recommended</div>
+                    <h3 class="pay-as-you-go-title" style="color: rgb(8, 0, 255); margin-left: 115px;">Abonnement  </h3>
+                    <h3 class="pay-as-you-go-title" style="color: rgb(8, 0, 255); margin-left: 110px;"> Pay As You Go </h3>
+                    <p class="margin-top-10">Accédez à nos services à la demande et ne payez que pour ce que vous utilisez.</p>
+                    <div class="pricing-plan-label billed-monthly-label"  style="color: rgb(8, 0, 255);"><strong>?</strong>/ ?</div>
+                    <div class="pricing-plan-label billed-yearly-label" ><strong>$529</strong>/ yearly</div>
+                    
+					<a  class="button full-width margin-top-20"  (click)="redirectionpaymentPayAsYouGo()" style="background-color: rgb(8, 0, 255);">Buy Now</a>
+                    <h3 class="aa" style="margin-top: 10px; margin-left: 45px;" >avec Facture/ with Invoice</h3>
+                </div>
+
+				<!-- Plan -->
+				<div class="pricing-plan" >
+					<h3  style="color: rgb(8, 0, 255);">Abonnement Annuel</h3>
+					<p class="margin-top-10"> bénéficiez d'une année complète d'accès illimité à tous nos contenus exclusifs. C'est le choix parfait pour les utilisateurs réguliers.</p>
+					<div class="pricing-plan-label billed-monthly-label"  style="color: rgb(8, 0, 255);"><strong>$3000</strong>/ yearly</div>
+					<div class="pricing-plan-label billed-yearly-label"><strong>$1069</strong>/ yearly</div>
+					
+					<a  class="button full-width margin-top-20"  (click)="redirectionpaymentbyYear()" style="background-color: rgb(8, 0, 255);">Buy Now</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+<div class="margin-top-20"></div>
+
+
+
+
+
+<!-- Wrapper / End -->
+
+<!-- Scripts
+================================================== -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.min.js"></script>
+<script src="js/mmenu.min.js"></script>
+<script src="js/tippy.all.min.js"></script>
+<script src="js/simplebar.min.js"></script>
+<script src="js/bootstrap-slider.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/snackbar.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/counterup.min.js"></script>
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/custom.js"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+</body>
+</html>
+
+

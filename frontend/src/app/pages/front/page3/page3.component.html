@@ -1,5 +1,16 @@
-
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Improved Page</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="C:\pfefront\pfeFront\src\assets\css\styles.css"> <!-- Lien vers le fichier CSS -->
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; height: 70px;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">OpsAutomate</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,13 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/ressource" style="color: black;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact">conatct</a>
+          <a class="nav-link" href="/ressource" style="color: black;">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/tests">tests</a>
+          <a class="nav-link" href="/contact" style="color: black;">Conatct</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: black;">About</a>
         </li>
         
       </ul>
@@ -30,9 +44,8 @@
         </ul>
         
       </div>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex" style="margin-top: 10px; margin-left: 10px;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 40px;">
       </form>
     </div>
   </div>
@@ -45,38 +58,35 @@
   <img class="profile-img" src="assets\images\docker.jpeg" alt="..." width="150" height="60" style="margin-top: 5px;" />
   
     </div>
-    <div class="checkbox-container">
-        <label class="checkbox-label">
-          <input type="checkbox" [(ngModel)]="isCheckedYess" name="yessCheckbox"   (change)="handleCheckboxChange()"/>
-          <span class="checkbox-custom"></span>
-          Yes
-        </label>
-        
-        <label class="checkbox-label">
-          <input type="checkbox" [(ngModel)]="isCheckedNoo" name="nooCheckbox"  />
-          <span class="checkbox-custom"></span>
-          No
-        </label>
-        
+    <div class="form-check form-switch" style="margin-left: 220px; margin-top: 5px;">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="isCheckedYess">
+      <label class="form-check-label" for="flexSwitchCheckDefault"></label>
       </div>
       
       <div class="radio-group">
         <fieldset class="radio-group">
             <legend>Options</legend>
             
-            <label class="radio-label">
-              <input type="radio" name="options" [(ngModel)]="selectedOption1" value="option1" [disabled]="!isCheckedYess" />
+            <label >
               Use previous artifact 
             </label>
+            <div class="form-check form-switch" style="margin-left: 20px">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="selectedOption1"[disabled]="!isCheckedYess">
+              <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+            </div>
             
             
             
-            <label class="radio-label">
-                <input type="radio" name="options" [(ngModel)]="selectedOption4" value="option4" [disabled]="!isCheckedYess" />
+            
+            <label>
                 Generate Dockerfile
               </label>
+              <div class="form-check form-switch" style="margin-left: 20px">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="selectedOption4"[disabled]="!isCheckedYess" (change)="updateTargetStage7()">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
 
-              <input type="text" placeholder="Image Name" [(ngModel)]="dockerImageName"  />
+              <input type="text" placeholder="Image Name" [(ngModel)]="dockerImageName" [disabled]="!isCheckedYess"  />
 
             
               
@@ -127,24 +137,24 @@ BDD
   
   
     </div>
-    <div class="attribute-frame">
+    <div class="attribute-frame" style="height: 180px;">
       <div class="attribute-frame__title">
           deploy local
           <img class="profile-img" src="assets/images/deploy.png" alt="Nexus logo">
       </div>
-      <div class="checkbox-container">
-          <label class="checkbox-label">
-              <input type="checkbox" [(ngModel)]="deployyes" name="yesCheckbox">
-              Yes
-          </label>
-          <label class="checkbox-label">
-              <input type="checkbox" [(ngModel)]="deployno" name="noCheckbox">
-              No
-          </label>
-      </div>
-
+       <div class="form-check form-switch" style="margin-left: 240px; margin-top: 15px;">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="deployyes">
+       </div>
   </div>
-  
+  <div class="containervalidate" >
+    <a  class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" style="margin-left: 690px; margin-bottom: 20px; " href="#" (click)="triggerPipeline()">Valider</a>
+
+</div>
+<div class="notification-container">
+  <div class="notification" [ngClass]="notificationClass" *ngIf="showNotification">
+    {{ notificationMessage }}
+  </div>
+</div>
   
   <div>
     <nav aria-label="Page navigation example">
@@ -152,17 +162,29 @@ BDD
         <li class="page-item ">
           <a class="page-link" href="/home" >Previous</a>
         </li>
-        <li  class="page-item"><a class="page-link" href="/pipeline">1</a></li>
+        <li class="page-item">
+          <a class="page-link">1</a>
+        </li>
         <li class="page-item"><a class="page-link" href="/page2">2</a></li>
         <li class="page-item active" aria-current="page"><a class="page-link" href="/page3">3</a></li>
+       
         <li class="page-item">
-          <a class="page-link"  (click)="triggerPipeline()">Next</a>
+          <a class="page-link">Next</a>
         </li>
       </ul>
     </nav>
+    
    </div>
    <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+  </div>
+  <div class="notification-container">
+    <div class="notification notification-success" *ngIf="showSuccessNotification">
+      Account verified successfully!
+    </div>
+    <div class="notification notification-error" *ngIf="showErrorNotification">
+      Verification failed. Please try again.
+    </div>
   </div>
    
   <footer class="bg-white py-4 mt-auto">
@@ -180,4 +202,18 @@ BDD
         </div>
       </div>
     </div>
+ 
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="C:\pfefront\pfeFront\src\assets\js\scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
   </footer>
+
+
+
+

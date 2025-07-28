@@ -24,12 +24,13 @@ import java.nio.file.Paths;
 @AllArgsConstructor
 public class TestResultController {
     private final TestResultService service ;
-    private final Path rootLocation = Paths.get("C:\\Users\\ADMIN\\OneDrive - ESPRIT\\Bureau\\uploadfile");
+   // private final Path rootLocation = Paths.get("C:\\Users\\ADMIN\\OneDrive - ESPRIT\\Bureau\\uploadfile");
+    private final Path rootLocation = Paths.get("C:\\Users\\ADMIN\\.jenkins\\workspace\\test1.1");
 
 
     @GetMapping("/junit-results-pdf")
     public ResponseEntity<ByteArrayResource> getTestResultsAsPdf() {
-        String url= "http://192.168.33.10:8080/job/projetpfe/lastBuild/testReport/api/xml";
+        String url= "http://192.168.33.10:8080/job/test/lastBuild/testReport/api/xml";
         String xmlData = service.getTestResultsAsXml(url);
         try {
             return service.convertXmlToPdf(xmlData);
@@ -41,7 +42,7 @@ public class TestResultController {
 
     @GetMapping("/selenuim-results-pdf")
     public ResponseEntity<ByteArrayResource> getPipelineLogPdf() throws IOException {
-        String url="http://localhost:8084/job/test1.1/lastBuild/consoleText";
+        String url="http://localhost:8084/job/test1.1/lastSuccessfulBuild/consoleText";
         String consoleOutput = service.extractseleniumtests(url);
         String extractedLogs = service.extractparteselenessential(consoleOutput);
         return service.convertResultExtractionToPdf(extractedLogs);
